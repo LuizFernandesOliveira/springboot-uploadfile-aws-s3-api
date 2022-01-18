@@ -5,6 +5,8 @@ import com.uploadfile.controllers.dtos.FileOutput;
 import com.uploadfile.interactions.FileCreating;
 import com.uploadfile.interactions.FileDeleting;
 import com.uploadfile.interactions.FileReading;
+
+import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -33,9 +35,15 @@ public class FileController {
     fileCreating.execute(fileInput);
   }
 
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  public List<FileOutput> findAll() {
+    return fileReading.execute();
+  }
+
   @GetMapping("/{id}")
   @ResponseStatus(HttpStatus.OK)
-  public FileOutput view(@PathVariable UUID id) {
+  public FileOutput find(@PathVariable UUID id) {
     return fileReading.execute(id);
   }
 
