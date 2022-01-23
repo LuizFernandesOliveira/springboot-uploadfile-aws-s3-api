@@ -1,14 +1,13 @@
 package com.uploadfile.entities;
 
+import com.uploadfile.controllers.dtos.FileOutput;
+import com.uploadfile.entities.types.FileType;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import com.uploadfile.controllers.dtos.FileOutput;
-import com.uploadfile.entities.types.FileType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -44,10 +43,10 @@ public class File {
 
   public FileOutput toOutput() {
     return FileOutput.builder()
-      .id(this.id)
-      .title(this.title)
-      .link(this.link)
-      .type(FileType.valueOf(this.type))
-      .build();
+        .id(this.id)
+        .title(this.title)
+        .link(this.link)
+        .type(FileType.valueOf(this.type))
+        .build();
   }
 }

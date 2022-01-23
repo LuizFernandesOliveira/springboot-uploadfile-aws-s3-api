@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  db:
+    container_name: db-postgres
+    image: postgres:12.2
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=291197
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=upload_file
+  api:
+    container_name: springboot-uploadfile
+    image: springboot-uploadfile
+    build: ./
+    ports:
+      - "8080:8080"
+    links:
+      - db

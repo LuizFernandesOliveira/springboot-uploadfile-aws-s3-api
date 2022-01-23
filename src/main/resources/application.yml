@@ -15,23 +15,15 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-
-server:
-  port: 8000
-
-flyway:
-  url: jdbc:postgresql://localhost:5432
-  schemas: pocketmat
-  user: postgres
-  password: 291197
-  baselineOnMigrate: true
-  enabled: true
+  devtools:
+    remote:
+      secret: 123
 
 cloud:
   aws:
     credentials:
-      access-key: AKIAQ76Y4KSDDREM6XG6
-      secret-key: 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
+      access-key: AKIAQ76Y4KSDP3Z7VTQ5
+      secret-key: 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
     region: us-east-1
     stack:
       auto: false
